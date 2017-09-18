@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view>
+  <!--   <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+  <!-- 公告 -->
+  <view class='notice-box'>
+    <text class='notice-css'></text>
+  </view>
+  <!-- 招牌 -->
+  <view class='signature-box'>
+    <view class='signature-logo-box'>
+      <image class='signature-logo' src='/assets/img/shop1.jpg'></image>
+    </view>
+    <view class='signature-info'>
+      <text class='shop-name'></text>
+      <text class='shop-address'></text>
+    </view>
+  </view>
+  <!-- 今日优惠 -->
+  <view class='preferential-box'>
+    <text class='preferential-title'>今日优惠</text>
+    <!-- 循环 -->
+    <view class='preferential-list'>
+      <text class='preferential-item'>1、</text>
+    </view>
+  </view>
+  <swiper indicator-dots="{{swiperConfig.indicatorDots}}" autoplay="{{swiperConfig.autoplay}}" interval="{{swiperConfig.interval}}"
+    duration="{{swiperConfig.duration}}" circular="{{swiperConfig.circular}}">
+    <!-- 图片循环 -->
+    <block wx:for="{{swiperConfig.imgUrls}}" wx:key="swiper_id">
+      <swiper-item>
+        <text>{{swiper_id}}</text>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='goods-box'>
+    <!-- 商品类型循环 -->
+    <view class='goods-type-list'>
+      <view class='type-item'>a类</view>
+    </view>
+    <!-- 对应商品循环 -->
+    <view class='goods-list'>
+      <view class='goods-item'>
+      <view class='goods-info'>
+        <image class='goods-img' src='/assets/img/goods1.jpg'></image>
+        <text class='goods-name'>A商品</text>
+        <text class='goods-price'>￥10/份</text>
+      </view>
+      <view class='goods-num-box'>
+        <image class='add-icon' src='/assets/img/add.png' bindtap='show'></image>
+        <text class='goods-num'>2</text>
+        <image class='reduce-icon' src='/assets/img/reduce.png' bindtap='hide'></image>
+      </view>
+      </view>
+    </view>
+  </view>
+<!-- 购物车 -->
+  <view class="trolley" animation="{{animationData}}" bindtap="toTrolley">
+    <text class="total-num">数量：</text>
+    <text class="total-price">总价：</text>
+  </view>
+
+</view>

@@ -1,0 +1,8 @@
+<view>
+    <view class="big-contain">
+        订单页面
+        <span bindtap="toOrderDetail" class="oerder-item">
+            跳转至详情页
+        </span>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+<!--pages/trolley/trolley.wxml-->
+<view class="container">
+  <text>pages/trolley/trolley.wxml</text>
+  <view class="list-box" wx:for="{{goodsList}}" wx:key="{{goods_index}}">
+    <view class="goods-item" wx:if="{{item.status}}">
+      <view class="goods-info">
+        <image src="{{item.img}}"></image>
+        <text class='goods-name'>{{item.goodsName}}</text>
+        <text class='goods-price'>{{item.price}}</text>
+      </view>
+      <view class='goods-num-box'>
+        <image class='add-icon' src='/assets/img/add.png' bindtap='show'></image>
+        <text class='goods-num'>2</text>
+        <image class='reduce-icon' src='/assets/img/reduce.png' bindtap='hide'></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/trolley/trolley.wxss */
+.container{
+    padding: 20rpx;
+}
