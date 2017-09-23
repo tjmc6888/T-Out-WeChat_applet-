@@ -1,18 +1,50 @@
 <!--pages/trolley/trolley.wxml-->
-<view class="container">
-  <text>pages/trolley/trolley.wxml</text>
-  <view class="list-box" wx:for="{{goodsList}}" wx:key="{{goods_index}}">
-    <view class="goods-item" wx:if="{{item.status}}">
+<view class="trolley-container">
+  <view class="list-box" wx:if="{{goodsList.length}}">
+    <view class="goods-item"  wx:for="{{goodsList}}" wx:key="{{goods_index}}" wx:if="{{item.status}}">
+    <!-- <view class="goods-item" wx:if="{{item.status}}"> -->
+      <!-- 操作窗 -->
+      <view class='goods-num-box'>
+        <image class='reduce-icon' src='/assets/img/reduce.png' bindtap='deleOne' id="deleGoods_{{item.id}}"></image>
+        <text class='goods-num'>{{item.goodsNum}}</text>
+        <image class='add-icon' src='/assets/img/add.png' bindtap='addOne' id="addGoods_{{item.id}}"></image>
+      </view>
+      <!-- 商品信息 -->
       <view class="goods-info">
         <image src="{{item.img}}"></image>
         <text class='goods-name'>{{item.goodsName}}</text>
         <text class='goods-price'>{{item.price}}</text>
       </view>
-      <view class='goods-num-box'>
-        <image class='add-icon' src='/assets/img/add.png' bindtap='show'></image>
-        <text class='goods-num'>2</text>
-        <image class='reduce-icon' src='/assets/img/reduce.png' bindtap='hide'></image>
-      </view>
     </view>
   </view>
+  <view class="noGoods" wx:else>
+    <image src='/assets/img/noGoods.png'></image>
+    <view style="clear:both;"></view>
+    <text>这是一辆很闲的购物车...</text>
+  </view>
+  <!-- 生成订单 -->
+  <view class="order-box">
+    <!-- 收货地址 -->
+    <view class="delivery-address-box" bindtap="toDelivery">
+      <view class="edit-delivery">
+        <image src="/assets/img/edit.png" class="edit-icon"></image>
+      </view>
+      <view class="delivery-top">收货地址:</view>
+      <view class="delivery-content">{{delivery}}</view>
+    </view>
+    <!-- 确认支付 -->
+    <view class="add-order">
+        <text class="total-num">总数：{{totalnum}}</text>
+        <view style="clear:both;"></view>
+        <text class="total-price">总价： ￥ {{totalPrice}}</text>
+        <view class="toTrolley-btn"  bindtap="sentOrder" wx:if="{{totalPrice>=base_price}}">
+            确认支付
+          </view>
+          <!-- <view class="base-price-btn" wx:else="{{totalPrice>=base_price}}"> -->
+          <view class="base-price-btn" wx:else>
+            起送价{{base_price}}元
+          </view>
+    </view>
+  </view>
+
 </view>

@@ -1,0 +1,53 @@
+<!--pages/delivery/delivery.wxml-->
+<view class="delivery-container">
+    <view class="delivery-list">
+        <view class="delivery-item" wx:for="{{deliveryList}}" wx:key="{{delivery_index}}">
+            <!-- 默认地址 -->
+            <view class="default-delivery" wx:if="{{item.default==1}}">
+                <image class="default" src="/assets/img/default.png"></image>
+                <view class="action-box">
+                    <view class="edit" id="edit_{{item.id}}" bindtap="editOne">
+                        <image class="edit-img" id="delete_{{item.id}}"  src="/assets/img/edit.png"></image>
+                    </view>
+                    <view class="delete" id="delete_{{item.id}}" bindtap="deleteOne">
+                        <image class="delete-img" id="delete_{{item.id}}"  src="/assets/img/delete.png"></image>
+                    </view>
+                </view>
+                <view class="item-top">
+                    <text class="address">{{item.address}}</text>
+                </view>
+                <!-- 个人信息部分 -->
+                <view class="item-bottom">
+                    <text class="userName">{{item.username}}</text>
+                    <text class="gender">{{item.gender}}</text>
+                    <text class="phone">{{item.phone_number}}</text>
+                </view>
+            </view>
+            <!-- 备用地址 -->
+            <view class="backup-delivery" wx:else>
+                <view class="action-box" id="edit_{{item.id}}" bindtap="editOne">
+                    <view class="edit">
+                        <image class="edit-img" id="delete_{{item.id}}"  src="/assets/img/edit.png"></image>
+                    </view>
+                    <view class="delete" id="delete_{{item.id}}" bindtap="deleteOne">
+                        <image class="delete-img" id="delete_{{item.id}}"  src="/assets/img/delete.png"></image>
+                    </view>
+                </view>
+                <view class="item-top">
+                    <text class="address">{{item.address}}</text>
+                </view>
+                <!-- 个人信息部分 -->
+                <view class="item-bottom">
+                    <text class="userName">{{item.username}}</text>
+                    <text class="gender">{{item.gender}}</text>
+                    <text class="phone">{{item.phone_number}}</text>
+                </view>
+
+            </view>
+        </view>
+    </view>
+    <view class="add-box" bindtap="addOne">
+        添加收货地址
+        <!-- <image class="add-icon" src="/assets/img/add2.png"></image> -->
+    </view>
+</view>

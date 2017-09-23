@@ -1,0 +1,27 @@
+<!--pages/edit/edit.wxml-->
+<text>pages/edit/edit.wxml</text>
+<view class="edit-box">
+    <view class="propertys-item">
+        <!-- 用户名 -->
+        <view class="username-box">
+            <text class="username-label">收件人姓名</text>
+            <text> : </text>
+            <input type="text" class="username-value" value="{{userName}}"></input>
+        </view>
+        <!-- 收货地址 -->
+        <view class="address-box">
+            <text class="address-label">收货地址</text>
+            <text> : </text>
+            <picker class="picker-box" mode="region" bindchange="bindRegionChange" value="{{region}}">
+                <view class="picker" wx:if='{{region.length>0}}'>
+                    {{address}}
+                </view>
+                <view class="picker" wx:else>
+                    点击此处设置收货地址
+                </view>
+            </picker>
+            <input type="text" class="detailed-address" placeholder="详细地址(如门牌号)" value="{{detailed_address}}"></input>
+        </view>
+    </view>
+    
+</view>

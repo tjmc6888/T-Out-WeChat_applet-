@@ -1,0 +1,74 @@
+/* pages/delivery/delivery.wxss */
+.delivery-list{
+    
+}
+.delivery-item{
+    line-height:80rpx;
+    border-bottom:1rpx solid #bdbdbd;
+    margin:0 20rpx;
+}
+.default-delivery{
+    font-weight:600;
+    border-bottom:5rpx solid #F33333;
+    /* border-bottom:5rpx solid #bdbdbd; */
+}
+.backup-delivery{
+
+}
+.address{
+    
+}
+.item-top{
+
+}
+.item-bottom{
+
+}
+.userName{
+    margin:0rpx 10rpx;
+}
+.gender{
+    margin:0rpx 10rpx;
+}
+.phone{
+    margin:0rpx 10rpx;
+}
+.default{
+    position: absolute;
+    right: 0rpx;
+    width:80rpx;
+    height:80rpx;
+}
+/*操作部分*/
+.action-box{
+    position: absolute;
+    margin:60rpx 0;
+    right:20rpx;
+    display: inline-flex;
+    z-index: 6;
+}
+.edit,.delete{
+    margin:10rpx;
+    z-index: 6;
+}
+.edit-img,.delete-img{
+    width:55rpx;
+    height:55rpx;
+    z-index: 6;
+}
+.add-box{
+    position: fixed;
+    /* bottom: 20%; */
+    bottom: 0%;
+    background: #F33333;
+    padding: 20rpx 0;
+    width: 100%;
+    color: white;
+    letter-spacing: 10rpx;
+    text-align: center;
+}
+.add-icon{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}

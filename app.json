@@ -6,13 +6,16 @@
     "pages/logs/logs",
     "pages/goods/goods",
     "pages/trolley/trolley",
-    "pages/goodsDetail/goodsDetail"
+    "pages/goodsDetail/goodsDetail",
+    "pages/delivery/delivery",
+    "pages/edit/edit",
+    "pages/add/add"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#333",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#ccc",

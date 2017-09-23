@@ -1,0 +1,11 @@
+/* pages/edit/edit.wxss */
+
+.picker{
+    width: 100%;
+    /* margin-left: 20rpx; */
+    padding: 20rpx;
+    background: #FAF6F6;
+}
+.picker-box{
+    display: inline-flex;
+}
