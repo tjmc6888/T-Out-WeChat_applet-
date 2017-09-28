@@ -9,7 +9,8 @@ var delivery1 = {
     street: 'XiaoGuWei',
     default: 0,
     user_id: 1,
-    username: 'Samyoo'
+    username: 'Samyoo',
+    gender:'man'
   }
 var delivery2 = {
     id:'12',
@@ -22,7 +23,9 @@ var delivery2 = {
     street: 'XiaoGuWei',
     default: 1,
     user_id: 1,
-    username: 'Samyoo'
+    username: 'Samyoo',
+    gender:'man'
+    
   }
 var delivery3 = {
     id:'13',
@@ -35,7 +38,9 @@ var delivery3 = {
     street: 'XiaoGuWei',
     default: 1,
     user_id: 2,
-    username: 'Van'
+    username: 'Van',
+    gender:'man'
+    
   }
 var delivery4 = {
     id:'14',
@@ -48,7 +53,9 @@ var delivery4 = {
     street: 'XiaoGuWei',
     default: 1,
     user_id: 3,
-    username: 'Thomas'
+    username: 'Thomas',
+    gender:'man'
+    
   }
 
   module.exports = {

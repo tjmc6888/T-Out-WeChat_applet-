@@ -2,30 +2,31 @@
 Page({
   data: {
     goodsList:[],
-    goods_item:{},
     delivery: '',
     totalPrice: 0,                    //总价
     totalnum: 0,                      //商品总数
-    base_price: 20,                      
+    base_price: 20,    
+    channels : [{name:'wx',value:'微信',checked:'true'},{name:'alipay',value:'支付宝'}],              
+    channel : '微信',
+    address : ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("getApp().globalData.trolley")
-    console.log(getApp().globalData.trolley)
+    //请求数据
     var myTrolley = getApp().globalData.trolley
     console.log(myTrolley)
     wx.setNavigationBarTitle({
         title: '购物车' ,
       });
-
     this.setData({
       goodsList : myTrolley.goodsArr,
       totalPrice: myTrolley.totalPrice,                    
       totalnum: myTrolley.totalnum,                     
       delivery : getApp().globalData.myDelivery,
+      address : getApp().globalData.myAddress,
     })
   },
   //把商品条目添加进商品数组
@@ -56,7 +57,7 @@ Page({
     myTrolley.totalPrice=totalPrice
     myTrolley.totalnum=totalnum
     myTrolley.goodsArr=goodsArr
-    getApp().globalData.trolley = trolley
+    getApp().globalData.trolley = myTrolley
     this.setData({
       goodsList : goodsArr,
       totalPrice: totalPrice,
@@ -104,6 +105,21 @@ Page({
   //发送订单至服务器
   sentOrder(){
     //in this 
+    console.log('sent ok')
+    var order = this.data
+    var data = {
+      goodsList: order.goodsList,
+      delivery: order.delivery,
+      totalPrice:  order.totalPrice,                    
+      totalnum: order.totalnum,                      
+      channel : order.channel
+    }
+    getApp().globalData.myOrder = data
+    //传送至订单详情页
+    wx.navigateTo({
+      url: '../orderDetail/orderDetail'
+    })
+    // parse
   },
   //获取对应的下标
   getIndex(e,str){
@@ -123,23 +139,18 @@ Page({
     return index;
   },
   /**
+   * 事件
+   */
+  radioChange(e){
+    var channel = e.detail.value=='wx'?'微信':'支付宝'
+    this.setData({
+      channel:channel
+    })
+  },
+  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
   
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

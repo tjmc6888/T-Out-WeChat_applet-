@@ -9,7 +9,7 @@ Page({
     default_delevery : {}
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期
    */
   onLoad: function (options) {
     //请求获取该用户添加的所有地址 ajax请求
@@ -21,19 +21,13 @@ Page({
     deliveryList.push(mock.delivery2)
     var len = deliveryList.length;
     for(var i=0;i<len;i++){
-      deliveryList[i]['address'] = deliveryList[i].city+" "+deliveryList[i].area+" "+ " "+deliveryList[i].street
+      deliveryList[i]['address'] = deliveryList[i].province+"\/"+deliveryList[i].city+"\/"+deliveryList[i].area
     }
     this.setData({
       deliveryList : deliveryList,
     })
   },
-  /**
-   * 生命周期
-   */
-  //生命周期函数--监听页面初次渲染完成
-  onReady: function () {
-  
-  },
+
   /**
    * 事件
    */
@@ -70,22 +64,49 @@ Page({
   },
   //跳转至修改页面
   editOne(e){
-    console.log(e)
     var deliveryList = this.data.deliveryList
     var delivery_index = this.getIndex(e,'deliveryList')
     getApp().globalData.myDelivery = deliveryList[delivery_index]
+    var address = deliveryList[delivery_index].address
+    var phone_number = deliveryList[delivery_index].phone_number
+    var detailed_address = deliveryList[delivery_index].street
+    var myDelivery = deliveryList[delivery_index]
+    var data = {
+      address: address,
+      username: myDelivery.username,
+      detailed_address: myDelivery.street,
+      phone_number: myDelivery.phone_number,
+      gender:myDelivery.gender,
+      province: myDelivery.province,
+      city: myDelivery.city,
+      area: myDelivery.area,
+      street: myDelivery.street,
+    }
+    console.log('data')
+    console.log(data)
+    var dataStr = JSON.stringify(data)
+    console.log(dataStr)
+    dataStr = dataStr.slice(1,dataStr.length-1) // 去除括号{}
+    dataStr = dataStr.replace(/\[/g,'') // 去除括号[
+    dataStr = dataStr.replace(/\]/g,'') // 去除括号]
+    dataStr = dataStr.replace(/\,/g,'&')//把全部','换成'&'
+    dataStr = dataStr.replace(/\"/g,'')//去掉全部"
+    dataStr = dataStr.replace(/\:/g,'=')//把全部':'换成'='
+    dataStr = dataStr
+    console.log(dataStr)
     wx.navigateTo({
-      // url: '../edit/edit?delivery='//传id
-      url: '../edit/edit?delivery'
+      url: '../edit/edit'+"?action='edit'&"+dataStr
     })
+
+  },
+  //设置为默认
+  setDefault(e){
+    console.log('eee setdefault')
+    console.log(e)
   },
 
    //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
-  
-  },
-   //页面上拉触底事件的处理函数
-  onReachBottom: function () {
   
   },
   /**

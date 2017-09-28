@@ -32,12 +32,14 @@
 .goods-info{
 
 }
+.goods-name{
+    position:absolute;
+}
 .goods-num-box{
     position: absolute;
     display:inline-flex;
     right:30rpx;
     z-index: 9;
-    /* width: 40%; */
     padding:50rpx 0;
   }
   /* 订单 */
@@ -93,4 +95,12 @@
   .noGoods text{
     font-weight: 600;
     color: #C0ACAC;
+  }
+  /* 支付方式 */
+  .channels-box{
+      display: inline-flex;
+      width: 100%;
+  }
+  .radio-group{
+      margin-left: 20rpx;
   }

@@ -34,6 +34,15 @@
     </view>
     <!-- 确认支付 -->
     <view class="add-order">
+            <!-- 支付方式 -->
+        <view class="channels-box">
+            <text class="channels-label">支付方式: </text>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio" wx:for="{{channels}}" wx:key="{{channel_index}}">
+                    <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+                </label>
+            </radio-group>
+        </view>
         <text class="total-num">总数：{{totalnum}}</text>
         <view style="clear:both;"></view>
         <text class="total-price">总价： ￥ {{totalPrice}}</text>

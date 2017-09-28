@@ -5,6 +5,7 @@ const app = getApp()
 var swiper = require('../../common/component/swiper')
 //模拟数据
 var mock = require('./mock')
+var delivery_mock = require('../delivery/delivery_mock')
 
 Page({
   data: {
@@ -169,7 +170,6 @@ Page({
   /**
    * 动画
    */
-
   //购物车动画效果
   show: function () {
     var animation = wx.createAnimation({
@@ -249,8 +249,21 @@ Page({
   },
   //跳转至 edit 页面
   toEdit: function () {
+    var dataStr = JSON.stringify(delivery_mock.delivery1)
+    dataStr = dataStr.slice(1,dataStr.length-1) // 去除括号
+    dataStr = dataStr.replace(/\,/g,'&')//把全部','换成'&'
+    dataStr = dataStr.replace(/\"/g,'')//去掉全部"
+    dataStr = dataStr.replace(/\:/g,'=')//把全部':'换成'='
+    dataStr = "?"+dataStr
+    console.log(dataStr)
     wx.navigateTo({
-      url: '../edit/edit'
+      url: '../edit/edit'+dataStr
+    })
+  },
+  //跳转至 orderDetail 页面
+  toOrderDetail: function () {
+    wx.navigateTo({
+      url: '../orderDetail/orderDetail'
     })
   },
   /**
@@ -301,7 +314,6 @@ Page({
       showType: showType,
       typeList : typeList
     })
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

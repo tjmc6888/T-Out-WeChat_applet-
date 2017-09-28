@@ -1,20 +1,27 @@
-<!--pages/edit/edit.wxml-->
 <text>pages/edit/edit.wxml</text>
 <view class="edit-box">
     <view class="propertys-item">
         <!-- 用户名 -->
         <view class="username-box">
-            <text class="username-label">收件人姓名</text>
-            <text> : </text>
-            <input type="text" class="username-value" value="{{userName}}"></input>
+            <text class="username-label">收件人姓名:</text>
+            <input type="text" class="username-value" value="{{userName}}" placeholder="请输入收件人姓名..."></input>
+        </view>
+        <!-- 性别 -->
+        <view class="gender-box">
+            <text class="gender-label">性别: </text>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio" wx:for="{{gender}}" wx:key="{{gender_index}}">
+                    <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+                </label>
+            </radio-group>
         </view>
         <!-- 收货地址 -->
         <view class="address-box">
-            <text class="address-label">收货地址</text>
-            <text> : </text>
+            <text class="address-label">收货地址:</text>
             <picker class="picker-box" mode="region" bindchange="bindRegionChange" value="{{region}}">
                 <view class="picker" wx:if='{{region.length>0}}'>
                     {{address}}
+                    <!-- 点击此处设置收货地址 -->
                 </view>
                 <view class="picker" wx:else>
                     点击此处设置收货地址
@@ -22,6 +29,22 @@
             </picker>
             <input type="text" class="detailed-address" placeholder="详细地址(如门牌号)" value="{{detailed_address}}"></input>
         </view>
+        <!-- 电话号码 -->
+        <text class="phone-number-label">电话号码:</text>
+        <view class="phone-number-box">
+            <input type="text" class="phone-number" placeholder="你的电话号码..." value="{{phone_number}}" ></input>
+        </view>
+        <!-- 设为默认 -->
+        <view class="default-box">
+           <text class="default-delivery-label">是否设为默认地址:</text>
+           <radio-group class="radio-group default-address" bindchange="setDefault">
+            <label class="radio " wx:for="{{default}}" wx:key="{{default_index}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+            </label>
+        </radio-group>
+        </view>
     </view>
-    
+    <view class="add-address-botton" bindtap="confirmDelivery">
+        <text>确认地址</text>
+    </view>
 </view>

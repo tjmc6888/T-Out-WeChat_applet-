@@ -34,15 +34,13 @@
       <block wx:for="{{swiperConfig.imgUrls}}" wx:key="swiper_id">
         <swiper-item>
           <text>{{swiper_id}}</text>
-          <image src="{{item}}" class="slide-image" width="355" height="150" id="recommend_{{index}}" bindtap="toEdit" />
+          <image src="{{item}}" class="slide-image" width="355" height="150" id="recommend_{{index}}" bindtap="toOrderDetail" />
         </swiper-item>
       </block>
     </swiper>
   </view>
-
   <view class='goods-box'>
     <!-- 商品类型循环 -->
-
     <view class='goods-type-list'>
       <view class='type-item ' wx:for="{{typeList}}" wx:key="{{type_index}}">
         <view class="type-info {{item.active}}" id="type_{{item.id}}" bindtap="setType">

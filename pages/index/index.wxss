@@ -150,7 +150,7 @@
   /* display: inline-block; */
   /* border-left: 5rpx solid #E6DFDF; */
   border-bottom: 2rpx solid #E6DFDF;
-  padding: 25rpx 0;
+  /* padding: 25rpx 0; */
   margin: 0 15rpx;
   font-weight: 600;
   /* margin: 0 25rpx; */

@@ -39,6 +39,8 @@ App({
     userInfo: null,
     trolley: [],
     goodsInfo: {},
-    myDelivery: '广州市番禺区小谷围大学城广东药科大学'
+    myOrder: {},
+    myDelivery: '广州市番禺区小谷围大学城广东药科大学',
+    myAddress : '广州市番禺区小谷围大学城广东药科大学',
   }
 })

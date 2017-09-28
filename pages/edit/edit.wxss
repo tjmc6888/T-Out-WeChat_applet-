@@ -1,5 +1,8 @@
 /* pages/edit/edit.wxss */
-
+.edit-box{
+    width: 100%;
+    height: 100%;
+}
 .picker{
     width: 100%;
     /* margin-left: 20rpx; */
@@ -8,4 +11,20 @@
 }
 .picker-box{
     display: inline-flex;
+}
+.add-address-botton{
+    position: fixed;
+    width: 100%;
+    background: #F33333;
+    color: white;
+    text-align: center;
+    bottom: 0;
+    padding: 15rpx;
+}
+.default-box{
+    display: inline-flex;
+}
+.default-address{
+    /* right: 20rpx; */
+    margin-left: 20rpx;
 }

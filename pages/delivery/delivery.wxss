@@ -48,7 +48,7 @@
     z-index: 6;
 }
 .edit,.delete{
-    margin:10rpx;
+    padding:10rpx;
     z-index: 6;
 }
 .edit-img,.delete-img{

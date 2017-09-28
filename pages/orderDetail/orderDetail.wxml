@@ -1,5 +1,65 @@
-<view>
-    <view>
-        orderDetail
+<view class="order-detail-container">
+    <!-- 订单状态 -->
+    <view class="status-box">
+        <!-- <image class="order-status" src="{{status_img}}"></image> -->
+        <!-- <view style="clear:both;"></view> -->
+        <view class="order-status">
+            <span class="order-status-text">{{status_text}}</span>
+        </view>
+    </view>
+    <!-- 订单商品列表 -->
+    <view class="goods-list-box">
+        <view class="goods-list-title">
+            <text>订单商品</text>
+        </view>
+        <view class="goods-list">
+            <view class="goods-item" wx:for="{{goodsList}}" wx:key="{{goods_index}}">
+                <!-- 操作窗 -->
+                <view class='goods-num-box'>
+                    <!-- <image class='reduce-icon' src='/assets/img/reduce.png' bindtap='deleOne' id="deleGoods_{{item.id}}"></image> -->
+                    <text class='goods-num'>x {{item.goodsNum}}</text>
+                    <!-- <image class='add-icon' src='/assets/img/add.png' bindtap='addOne' id="addGoods_{{item.id}}"></image> -->
+                </view>
+                <!-- 商品信息 -->
+                <view class="goods-info">
+                    <image src="{{item.img}}"></image>
+                    <text class='goods-name'>{{item.goodsName}}</text>
+                    <text class='goods-price'>{{item.price}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 订单相关信息 -->
+    <view class="goods-list-title">
+        <text>配送信息</text>
+    </view>
+    <view class="order-goods-info-box">
+        <view class="order-info-pay">
+            <text class="three-word">订单</text>号: <view class="order-data">{{order_id}}</view> 
+            <view style="clear:both;"></view>
+            <!-- 当前渠道为这两个 -->
+            <text class="four-word">支付渠</text>道: <view class="order-data">{{order_pay=='wx'?'微信':'支付宝'}}</view> 
+        </view>
+        <view class="order-info-time">
+            <text class="four-word">下单时</text>间: <view class="order-data">{{order_place_time}}</view> 
+            <view style="clear:both;"></view>
+            <text class="four-word">预达时</text>间: <view class="order-data">{{order_arrive_time}}</view> 
+        </view>
+        <view class="order-info-receiver">
+            <text class="three-word">收货</text>人: <view class="order-data">{{receiver_name}}</view> 
+            <view style="clear:both;"></view>
+            <text class="two-word">电</text>话: <view class="order-data">{{receiver_phone}}</view> 
+        </view>
+        <view class="order-info-delivery">
+            <text class="two-word">地</text>址: <view class="order-data">{{address}}</view> 
+        </view>
+        <view class="order-info-remark">
+            <text class="two-word">备</text>注: <view class="order-data">{{remark}}</view> 
+        </view>
+        <view class="order-info-pay">
+            <text class="two-word">数</text>量: <view class="order-data">{{totalnum}}</view> 
+            <view style="clear:both;"></view>
+            <text class="two-word">总</text>价: <view class="order-data">{{totalPrice}}</view> 
+        </view>
     </view>
 </view>
