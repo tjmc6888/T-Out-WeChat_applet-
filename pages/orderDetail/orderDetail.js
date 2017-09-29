@@ -1,6 +1,5 @@
-// pages/orderDetail/orderDetail.js
  var mock_data = require('./order_mock')
-
+ var common_method = require('../../common/js/method')
 Page({
   data: {
     goodsList:[],
@@ -12,11 +11,16 @@ Page({
     receiver_phone : '',
     delivery : '',
     remark : '',
-    status_img : '/assets/img/paying2.png',
+    status : 0,
     status_text : '待付款',
     totalPrice: 0,                    
     totalnum: 0,                  
-    address : ''
+    address : '',
+    btn_left : '',
+    btn_right : '',
+    btn_left_css : '',
+    btn_center_css : '',
+    btn_right_css : '',
   },
 
   /**
@@ -25,7 +29,6 @@ Page({
    // 生命周期函数--监听页面加载
   onLoad: function (options) {
     //请求数据
-    
     var goodsArr = mock_data.order1.goodsList
     console.log('goodsList')
     console.log(goodsArr)
@@ -33,17 +36,16 @@ Page({
     wx.setNavigationBarTitle({
         title: '订单详情' ,
       });
-    var status_text = this.getStatus();
+    var status = this.getStatus();
     var place_time = this.normalDate(mock_data.order1.pay_time)
     var arrive_time = this.getArriveTime(mock_data.order1.pay_time)
     this.setData({
-      // getStatus : myTrolley.goodsArr,
       goodsList : goodsArr,
-      // totalPrice: myTrolley.totalPrice,                    
-      // totalnum: myTrolley.totalnum,                     
       delivery : getApp().globalData.myDelivery,
       address : getApp().globalData.myAddress,
-      status_text : status_text,
+      status_text : status.status_text,
+      btn_left : status.btn_left,
+      btn_right : status.btn_right,
       remark : mock_data.order1.remark,
       order_id : mock_data.order1.serial_number,
       order_pay : mock_data.order1.pay_channel,
@@ -52,7 +54,8 @@ Page({
       receiver_name : mock_data.order1.recerver_name,
       receiver_phone : mock_data.order1.recerver_phone,
       totalPrice: mock_data.order1.totalPrice,                    
-      totalnum: mock_data.order1.totalNum,                     
+      totalnum: mock_data.order1.totalNum,
+      status: mock_data.order1.status                    
     })
   },
 
@@ -63,27 +66,192 @@ Page({
   
   },
   /**
-   * 方法
+   * 事件处理
    */
+  dealStatus(e){
+    console.log('deal')
+    console.log(e)
+    if(this.data.btn_left_css=='btn-left')
+      this.setData({
+        btn_left_css: 'btn-left-return',
+        btn_center_css: 'btn-center-return',
+        status_text: this.getStatus().status_text,
+        btn_right_css: 'btn-right-return',
+      })
+      else{
+        this.setData({
+          btn_left_css: 'btn-left',
+          btn_center_css: 'center-btn-tap',
+          status_text: '返回',
+          btn_right_css: 'btn-right',
+        })
+      }
+  },
+  //右边点击
+  tapRight(e){
+    var statusNum = e.currentTarget.id.split('_')[1]
+    console.log('eeeeeeright')
+    console.log(e)
+    console.log(e.currentTarget.id.split('_'))
+    var status = {
+      status_text : this.data.btn_left,
+      btn_left : '',
+      btn_right : '',
+    }
+    // statusNum = 2
+    wx.showModal({
+      title: '提示',
+      content: '是否确认' + this.data.btn_right + ' ?',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          switch(parseInt(statusNum)){
+            case 0 : {
+              //发送 已支付 请求
+
+              //重定向到结果页面
+              wx.redirectTo({
+                url : '../resultPage/resultPage?action=0'
+              })
+            };break;
+            case 1 : {
+              //发送 已送达 请求
+
+              //重定向到结果页面
+              wx.redirectTo({
+                url : '../resultPage/resultPage?action=1'
+              })
+            };break;
+            case 2 : {
+              //返回 状态
+              this.setData({
+                btn_left_css: 'btn-left-return',
+                btn_center_css: 'center-btn-return',
+                status_text: this.getStatus().status_text,
+                btn_right_css: 'btn-right-return',
+              })
+            };break;
+            case 3 : {
+              //返回 状态
+              this.setData({
+                btn_left_css: 'btn-left-return',
+                btn_center_css: 'center-btn-return',
+                status_text: this.getStatus().status_text,
+                btn_right_css: 'btn-right-return',
+              })
+            };break;
+            case 4 : {
+              //返回 状态
+              this.setData({
+                btn_left_css: 'btn-left-return',
+                btn_center_css: 'center-btn-return',
+                status_text: this.getStatus().status_text,
+                btn_right_css: 'btn-right-return',
+              })
+            };break;
+          }
+    } else if (res.cancel) {
+      console.log('用户点击取消')
+    }
+  }
+  })
+  },
+  //左边点击
+  tapLeft(e){
+    var statusNum = e.currentTarget.id.split('_')[1]
+    console.log('eeeeeeleft')
+    console.log(e)
+    console.log(e.currentTarget.id.split('_'))
+    var status = {
+      status_text : '',
+      btn_left : '',
+      btn_right : '',
+    }
+    wx.showModal({
+      title: '提示',
+      content: '是否确认 '+this.data.btn_left+'?',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          switch(parseInt(statusNum)){
+            case 0 : {
+              //发送 关闭付款 请求
+
+              //重定向到结果页面
+              wx.redirectTo({
+                url : '../resultPage/resultPage?action=0'
+              })
+            };break;
+            case 1 : {
+              //发送 退款 请求
+
+              //重定向到结果页面
+              wx.redirectTo({
+                url : '../resultPage/resultPage?action=1'
+              })
+            };break;
+            case 2 : {
+              //返回 状态
+              this.setData({
+                btn_left_css: 'btn-left-return',
+                btn_center_css: 'center-btn-return',
+                status_text: this.getStatus().status_text,
+                btn_right_css: 'btn-right-return',
+              })
+            };break;
+            case 3 : {
+              //返回 状态
+              this.setData({
+                btn_left_css: 'btn-left-return',
+                btn_center_css: 'center-btn-return',
+                status_text: this.getStatus().status_text,
+                btn_right_css: 'btn-right-return',
+              })
+            };break;
+            case 4 : {
+              //返回 状态
+              this.setData({
+                btn_left_css: 'btn-left-return',
+                btn_center_css: 'center-btn-return',
+                status_text: this.getStatus().status_text,
+                btn_right_css: 'btn-right-return',
+              })
+            };break;
+          }
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+      })
+  },
+  /**
+   * 方法方法
+   */
+  //不同的状态的处理方法
+  
   //获取订单状态
   getStatus(){
     var statusNum = 1;
+    statusNum = this.data.status
     //发送 ajax 请求 取得订单状态后返回
-    var status = ''
-
+    var status = {
+      status_text : '',
+      btn_left : '',
+      btn_right : '',
+    }
+    var status_text = ''
     switch(statusNum){
-      case 0 : status = '待付款';break;
-      case 1 : status = '待送达';break;
-      case 2 : status = '已完成';break;
-      case 3 : status = '待退款';break;
-      case 4 : status = '已关闭';break;
+      case 0 : {status.status_text = '待付款';status.btn_left = '关闭';status.btn_right = '支付';};break;
+      case 1 : {status.status_text = '待送达';status.btn_left = '退款';status.btn_right = '已达';};break;
+      case 2 : {status.status_text = '已完成';status.btn_left = '取消';status.btn_right = '确认';};break;
+      case 3 : {status.status_text = '待退款';status.btn_left = '取消';status.btn_right = '确认';};break;
+      case 4 : {status.status_text = '已关闭';status.btn_left = '取消';status.btn_right = '确认';};break;
     }
     return status;
   },
   //获取订单预达时间
   getArriveTime(time){
     // 规范时间
-
     var arrive_date = time.split('_')[0];//日期
     var arrive_theday_time = time.split('_')[1];//当天时间
     var date_arr = arrive_date.split('/')//把日期切割成年,月,日
@@ -93,7 +261,6 @@ Page({
     
     var minute = parseInt(theday_time_arr[1]) 
     var hour = parseInt(theday_time_arr[0]) 
-
     minute += need_time
     if(minute>=60){
       minute -= 60;

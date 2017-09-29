@@ -9,7 +9,8 @@
     "pages/goodsDetail/goodsDetail",
     "pages/delivery/delivery",
     "pages/edit/edit",
-    "pages/add/add"
+    "pages/add/add",
+    "pages/resultPage/resultPage"
   ],
   "window": {
     "backgroundTextStyle": "light",

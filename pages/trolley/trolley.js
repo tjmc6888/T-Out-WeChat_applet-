@@ -96,7 +96,9 @@ Page({
   //跳转至收货地址编辑页面
   toDelivery(){
     wx.navigateTo({
-      url: '../delivery/delivery'
+    // wx.redirectTo ({
+      url: '../delivery/delivery',
+
     })
   },
   /**
@@ -116,8 +118,11 @@ Page({
     }
     getApp().globalData.myOrder = data
     //传送至订单详情页
-    wx.navigateTo({
-      url: '../orderDetail/orderDetail'
+      wx.redirectTo({
+    // wx.navigateTo({
+      url: '../orderDetail/orderDetail',
+      success(e) {
+      }
     })
     // parse
   },

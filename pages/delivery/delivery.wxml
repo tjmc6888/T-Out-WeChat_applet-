@@ -1,9 +1,9 @@
 <!--pages/delivery/delivery.wxml-->
 <view class="delivery-container">
     <view class="delivery-list">
-        <view class="delivery-item"  wx:for="{{deliveryList}}" wx:key="{{delivery_index}}" id="item_{{item.id}}" bindtap="setDefault">
+        <view class="delivery-item"  wx:for="{{deliveryList}}" wx:key="{{delivery_index}}">
             <!-- 默认地址 -->
-            <view class="default-delivery" >
+            <view class="default-delivery"  id="item_{{item.id}}" bindtap="setDefault">
                 <image class="default" src="/assets/img/default.png" wx:if="{{item.default==1}}"></image>
                 <view class="action-box">
                     <view class="edit" id="edit_{{item.id}}" catchtap="editOne">

@@ -147,6 +147,16 @@ Page({
     }
     return typeList;
   },
+  //清除货物数量
+  clearNum(arr){
+    var len = arr.length;
+    for(var i=0;i<len;i++){
+      arr[i].goodsNum = 0;
+    }
+    this.setData({
+      goodsList : arr
+    })
+  },
   //获取对应的下标
   getIndex(e,str){
     var target_id = e.target.id.split('_')[1]
@@ -222,6 +232,7 @@ Page({
     wx.navigateTo({
       url: '../trolley/trolley'
     })
+    // this.clearNum(goodsArr)
   },
   //跳转至 goodsDetail 页面
   toGoodsDetail (e) {
@@ -233,12 +244,6 @@ Page({
     getApp().globalData.goodsInfo = goodsArr[target_index]
     wx.navigateTo({
       url: '../goodsDetail/goodsDetail'
-    })
-  },
-  //跳转至 logs 页面
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
     })
   },
   //跳转至 delivery 页面
@@ -256,9 +261,9 @@ Page({
     dataStr = dataStr.replace(/\:/g,'=')//把全部':'换成'='
     dataStr = "?"+dataStr
     console.log(dataStr)
-    wx.navigateTo({
-      url: '../edit/edit'+dataStr
-    })
+    // wx.navigateTo({
+    //   url: '../edit/edit'+dataStr
+    // })
   },
   //跳转至 orderDetail 页面
   toOrderDetail: function () {
@@ -297,9 +302,13 @@ Page({
     typeList[0]['active'] = "active"
     return typeList;
   },
+  /**
+   * 生命周期
+   */
   //初始化页面
   onLoad: function () {
     console.log("this.data before")
+    this.clearNum(this.data.goodsList)
     wx.setNavigationBarTitle({
       title: '首页' ,
     });

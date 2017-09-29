@@ -59,7 +59,7 @@ Page({
     console.log('options')
     console.log(options)
     var genderArr = this.data.gender
-    if(options){
+    if(options.action=='edit'){
       var region = []
       region.push(options.province)
       region.push(options.city)

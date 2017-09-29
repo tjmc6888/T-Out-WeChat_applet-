@@ -1,10 +1,14 @@
 <view class="order-detail-container">
     <!-- 订单状态 -->
     <view class="status-box">
-        <!-- <image class="order-status" src="{{status_img}}"></image> -->
-        <!-- <view style="clear:both;"></view> -->
-        <view class="order-status">
+        <view class="order-status {{btn_left_css}}" id="leftBtn_{{status}}"  bindtap="tapLeft" >
+            <span class="order-status-text">{{btn_left}}</span>
+        </view>
+        <view class="order-status center-btn {{btn_center_css}}" id="status_{{status}}" bindtap="dealStatus">
             <span class="order-status-text">{{status_text}}</span>
+        </view>
+        <view class="order-status {{btn_right_css}}" id="rightBtn_{{status}}" bindtap="tapRight">
+            <span class="order-status-text">{{btn_right}}</span>
         </view>
     </view>
     <!-- 订单商品列表 -->
