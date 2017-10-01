@@ -1,2 +1,9 @@
 <!--pages/resultPage/resultPage.wxml-->
 <text>pages/resultPage/resultPage.wxml</text>
+<view class="result-container">
+    <view class="result-img-box">
+        <image src="{{result.img}}" class="result-img"></image>
+        <view class="finish-action">{{result.content}}</view>
+    </view>
+</view>
+<view class="return-order-list" bindtap="comeback_btn">返回订单列表</view>

@@ -22,6 +22,7 @@
     <view style="clear:both;"></view>
     <text>这是一辆很闲的购物车...</text>
   </view>
+
   <!-- 生成订单 -->
   <view class="order-box">
     <!-- 收货地址 -->
@@ -30,10 +31,18 @@
         <image src="/assets/img/edit.png" class="edit-icon"></image>
       </view>
       <view class="delivery-top">收货地址:</view>
-      <view class="delivery-content">{{delivery}}</view>
+      <view class="delivery-content"><text>{{delivery}}</text></view>
     </view>
     <!-- 确认支付 -->
     <view class="add-order">
+        <!-- 备注填写 -->
+        <view class="backup-box">
+          <text>备注:</text>
+          <view class="input-box">
+              <!-- <input type="text" class="textarea-css" placeholder-class="placeholder-class" maxlength="20" placeholder="请输入备注内容...(20字以内,可不填)" value="{{backup_content}}" ></input> -->
+              <textarea class="textarea-css" placeholder-class="placeholder-class" maxlength="20" placeholder="请输入备注内容...(20字以内,可不填)" value="{{backup_content}}" />
+          </view>
+        </view>
             <!-- 支付方式 -->
         <view class="channels-box">
             <text class="channels-label">支付方式: </text>
@@ -46,6 +55,8 @@
         <text class="total-num">总数：{{totalnum}}</text>
         <view style="clear:both;"></view>
         <text class="total-price">总价： ￥ {{totalPrice}}</text>
+
+        
         <view class="toTrolley-btn"  bindtap="sentOrder" wx:if="{{totalPrice>=base_price}}">
             确认支付
           </view>

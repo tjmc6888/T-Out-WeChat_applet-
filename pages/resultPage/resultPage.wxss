@@ -1,1 +1,32 @@
 /* pages/resultPage/resultPage.wxss */
+.return-order-list{
+    background: #F33333;
+    position: absolute;
+    bottom: 0;
+    padding: 20rpx 20rpx;
+    color: white;
+    width: 100%;
+    font-size: 50rpx;
+    font-weight: 600;
+    text-align:center;
+}
+.result-container{
+    margin: 25rpx;
+}
+.result-img{
+    width: 200rpx;
+    height: 200rpx;
+}
+.result-img-box{
+    padding:20rpx 10rpx;
+    height:800rpx;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center
+}
+.finish-action{
+    margin: 25rpx 20rpx;
+    line-height: 90rpx;
+    font-size: 45rpx;
+}

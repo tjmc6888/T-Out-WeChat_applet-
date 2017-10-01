@@ -10,7 +10,8 @@
     "pages/delivery/delivery",
     "pages/edit/edit",
     "pages/add/add",
-    "pages/resultPage/resultPage"
+    "pages/resultPage/resultPage",
+    "pages/myInfo/myInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,7 +39,7 @@
       },
       {
         "text": "个人中心",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/myInfo/myInfo",
         "iconPath": "assets/icon/me.png",
         "selectedIconPath": "assets/icon/meActived.png"
       }

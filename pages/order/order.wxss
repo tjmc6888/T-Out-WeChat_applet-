@@ -1,5 +1,83 @@
-.oerder-item{
-    background: #890AF6;
-    padding: 5px;
-    line-height: 17px;
+
+.order-list-box{
+    /* width: 100%; */
+
+}
+/*一个订单*/
+.order-item{
+    padding: 10rpx 25rpx;
+    display: flex;
+    flex-direction: column;
+    background:white;
+    border:10rpx solid #dadada;
+    border-radius:2%;
+    margin: 50rpx 5%;
+}
+.item-top,.item-center,.item-bottom{
+    /* width: 100%; */
+}
+/*首部*/
+.item-roof{
+    position: relative;
+    display: flex;
+    font-size: 40rpx;
+    /* font-weight: 600; */
+    line-height: 80rpx;
+    border-bottom: 2rpx solid #dadada;
+}
+.order-serial-number{
+    /* font-weight: 600; */
+}
+/*上部分*/
+.item-top{
+    position: relative;
+    font-size: 45rpx;
+    display: inline-flex;
+    flex-direction: row;
+    line-height: 90rpx;
+    border-bottom: 2rpx solid #dadada;
+}
+.order-time{
+    font-size:40rpx;
+}
+.order-status{
+    position: absolute;
+    right: 0rpx;
+    font-weight: 800;
+}
+/* 中间部分 */
+.item-center{
+    position: relative;
+    display: flex;
+    font-size: 30rpx;
+    flex-direction: column;
+    line-height: 60rpx;
+    margin: 20rpx 0;
+    border-bottom: 2rpx solid #dadada;
+}
+.goods-item{
+    position: relative;
+    display:flex;
+}
+.goods-name{
+    
+}
+.goods-number{
+    position: absolute;
+    right: 0rpx;
+}
+.goods-price{
+    margin-left: 25rpx;
+}
+/* 下部分 */
+.item-bottom{
+    position: relative;
+    display: flex;
+}
+.item-total-number{
+    float: right;
+}
+.item-total-price{
+    float: right;
+    font-weight: 800;
 }

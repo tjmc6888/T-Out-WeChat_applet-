@@ -147,6 +147,20 @@ Page({
     }
     return typeList;
   },
+  //设置用户信息
+  setUserInfo(){
+    wx.getUserInfo({
+      success: res => {
+        // 可以将 res 发送给后台解码出 unionId
+        app.globalData.userInfo = res.userInfo
+        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        // 所以此处加入 callback 以防止这种情况
+        if (app.userInfoReadyCallback) {
+          app.userInfoReadyCallback(res)
+        }
+      }
+    })
+  },
   //清除货物数量
   clearNum(arr){
     var len = arr.length;
@@ -238,12 +252,28 @@ Page({
   toGoodsDetail (e) {
     console.log('togoodsd')
     console.log(e)
-    var target_index = this.getIndex(e,'goodsList')
+    //设置购物车数据至全局
+    var myTrolley = {
+      goodsArr : [] ,
+      totalPrice : 0,
+      totalnum : 0,
+    }
     var goodsArr = this.data.goodsList
     //把商品展示数据获取设置到全局
+    var target_index = this.getIndex(e,'goodsList')
     getApp().globalData.goodsInfo = goodsArr[target_index]
+    
+    var len = goodsArr.length
+    for(var i=0;i<len;i++){
+      if(goodsArr[i].goodsNum)
+        myTrolley.goodsArr.push(goodsArr[i])
+    }
+    myTrolley.totalPrice = this.data.totalPrice
+    myTrolley.totalnum = this.data.totalnum
+    getApp().globalData.trolley = myTrolley;
+
     wx.navigateTo({
-      url: '../goodsDetail/goodsDetail'
+      url: '../goodsDetail/goodsDetail?id='+e.currentTarget.id.split('_')[1]
     })
   },
   //跳转至 delivery 页面
@@ -271,6 +301,7 @@ Page({
       url: '../orderDetail/orderDetail'
     })
   },
+
   /**
    * 初始化方法
    */
@@ -308,6 +339,8 @@ Page({
   //初始化页面
   onLoad: function () {
     console.log("this.data before")
+    this.setUserInfo()
+    // console.log(getApp().globalData.userInfo)
     this.clearNum(this.data.goodsList)
     wx.setNavigationBarTitle({
       title: '首页' ,

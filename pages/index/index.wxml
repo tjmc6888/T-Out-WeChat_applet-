@@ -80,7 +80,6 @@
     <view class="base-price-btn" wx:else>
       还差{{base_price-totalPrice}}元起送
     </view>
-
   </view>
 
 </view>

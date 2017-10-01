@@ -1,7 +1,32 @@
 <!--pages/goodsDetail/goodsDetail.wxml-->
 <text>pages/goodsDetail/goodsDetail.wxml</text>
 <view class="goods-show-contain">
-    <view class="goods-info-box">
+    <!-- goods的图片 -->
+    <view class="goods-img-box" bindtap='getImg'>
+        <view class="sold-out" wx:if="{{goods_status==0}}">
+            <image src="/assets/img/sale_out2.png"></image>
+        </view>
         
+        <view class="img-box" bindtap="getBigImg">
+            <image src="{{goodsImg}}"></image>
+        </view>
     </view>
+    <!-- goods的信息描述 -->
+    <view class="goods-info-box">
+        <view class="goods-name">{{goodsName}}</view>
+        <view class="status-box">
+            <view class="status sold-in" >价格：{{goodsPrice}}/份 </view>
+        </view>
+        <view class="description">介绍：{{description}}</view>
+       <view class="goods-data">
+           <view class="sell-number">月销量：{{sell_number}}</view>
+           <view class="grade">好评率：{{grade}}</view>
+       </view>
+
+    </view>
+    <!-- 返回按钮 -->
+    <view class="comeback-btn" bindtap="comeback_btn">
+        返回上一页
+    </view>
+    <!-- 相关推荐 V2.0 -->
 </view>

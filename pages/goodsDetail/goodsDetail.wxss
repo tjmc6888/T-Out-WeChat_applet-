@@ -1,1 +1,95 @@
 /* pages/goodsDetail/goodsDetail.wxss */
+.goods-show-contain{
+    
+}
+.goods-img-box{
+    width:100%;
+    display:flex;
+    position:relative;
+}
+.name-price-box{
+    position:absolute;
+    width:100%;
+    line-height:45rpx;
+    background:#333;
+    opacity:0.6;
+    bottom:0;
+    font-size:35rpx;
+    color:white;
+    display:inline-flex;
+    
+}
+.img-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    
+}
+.goods-info-box{
+
+}
+.goods-name{
+    font-weight: 600;
+    /* font-size:  */
+    letter-spacing: 3rpx;
+    font-size: 65rpx;
+}
+.status-box{
+    width: 100%;
+    display: inline-flex;
+}
+.sold-out{
+    position: absolute;
+    width: 160rpx;
+    height: 160rpx;
+    bottom: 10rpx;
+}
+.sold-out image{
+    width: 160rpx;
+    height: 160rpx;
+}
+.description{
+    /* font-size: 25rpx; */
+    /* text-indent: 45rpx; */
+}
+.sell-number{
+    /* font-size:25rpx; */
+}
+.grade{
+    /* font-size:25rpx; */
+}
+.goods-data{
+    /* display: flex; */
+}
+.status{
+    font-size: 60rpx;
+}
+.sold-out{
+
+}
+.sold-in{
+
+}
+
+.img-box image{
+    width:100%;
+    height:400rpx;
+    display:inline-block;
+    overflow:hidden;
+}
+.comeback-btn{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 100rpx;
+    background: #F33333;
+    color: white;
+    text-align: center;
+    letter-spacing: 5rpx;
+    font-size: 40rpx;
+    font-weight: 600;
+}
+.comeback-btn:active{
+    background: #AC0F0F
+}

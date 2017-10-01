@@ -17,8 +17,12 @@
 .edit-icon{
     width: 60rpx;
     height: 60rpx;
-    float: right;
-    margin-right: 20rpx;
+    /* float: right;
+    margin-right: 20rpx; */
+    position:absolute;
+    right:20rpx;
+    top:10rpx;
+    
 }
 /**/
 .list-box{
@@ -58,7 +62,11 @@
     /* background:#4B4444; */
     background:#F33333;
     color:white;
+    padding-top:20rpx;
   }
+  .delivery-content{
+    width: 80%;
+}   
   .delivery-top{
       font-weight: 600;
   }
@@ -67,16 +75,17 @@
     height: 10%;
 }
 .toTrolley-btn,.base-price-btn{
-    /* position: absolute; */
-    right: 20rpx;
-    /* background: red; */
-    background: #F33333;
-    float: right;
-    padding: 10rpx 20rpx;
-    margin: 0 auto;
-    margin-top: -35rpx;
-    font-weight: 600;
-    color: white;
+    right:20rpx;
+    background:#F33333;
+    /* float:right; */
+    padding:20rpx 20rpx;
+    /* margin:0 auto;
+    margin-top:-35rpx; */
+    font-weight:600;
+    color:white;
+    position:absolute;
+    bottom:20rpx;
+    
   }
   .base-price-btn{
     background: #796C6C;
@@ -101,6 +110,32 @@
       display: inline-flex;
       width: 100%;
   }
+  .add-order{
+      margin:0 20rpx;
+      padding:20rpx 0;
+      
+  }
   .radio-group{
       margin-left: 20rpx;
+  }
+  /* 备注输入框 */
+  .backup-box{
+    margin:10rpx 0;
+    display:inline-flex;
+    width:100%;
+}
+.input-box{
+    background: white;
+    border:0.5px solid #E6DFDF;
+    width:400rpx;
+    height:65px;
+    margin-left: 20rpx; 
+  }
+  .input-box textarea{
+      width: 400rpx;
+      height:65px;
+  }
+  .placeholder-class{
+      background: white;
+
   }

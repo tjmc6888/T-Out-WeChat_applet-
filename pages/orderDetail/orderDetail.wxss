@@ -9,7 +9,10 @@
     width: 95%;
     margin:5rpx 15rpx;
     font-size:30rpx;
-    
+    /* 亚洲字体换行 */
+    white-space:normal;
+    /*数字或字母换行*/
+    word-break:break-all;
 }
 .order-detail-container{
     padding-bottom: 50rpx;
@@ -41,6 +44,9 @@ text{
     background: #F33333;
     justify-content: center;
     align-items: center;
+}
+.order-status:active{
+    background: #BE0F0F;
 }
 .order-status-text{
     margin: 0;

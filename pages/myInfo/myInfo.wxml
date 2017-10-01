@@ -1,0 +1,46 @@
+<!--pages/myInfo/myInfo.wxml-->
+<text>pages/myInfo/myInfo.wxml</text>
+<view class="myInfo-container">
+    <!-- 顶部信息卡片 -->
+    <view class="info-card-box">
+        <!-- 左边头像 -->
+        <view class="avatar-box"></view>
+        <!-- 右边信息 -->
+        <view class="info-box">
+            <!-- 姓名和性别 -->
+            <view class="name-gender-box">
+                <view class="name-box">{{user.nickName}}</view>
+                <view class="gender-box">
+                    <image class="gender-css" src="{{genderImg}}"></image>
+                </view>
+            </view>
+            <!-- 电话 -->
+            <view class="phone-box">
+                <image class="phone-icon" src='/assets/img/phone.png'></image>
+                <view class="phone-number">{{user.phone_number}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 主体操作选项 -->
+    <view class="main-action-box">
+        <!-- 收货地址设置 -->
+        <view class="delivery-set-box">
+            <view class="deluvery-text">收货地址设置</view>
+        </view>
+        <!-- 关于我们 -->
+        <view class="delivery-set-box">
+            <view class="about-text">关于我们</view>
+        </view>
+        <!-- 联系客服 -->
+        <view class="delivery-set-box">
+            <view class="contact-text">联系客服</view>
+        </view>
+        <!-- 当前位置 -->
+        <view class="delivery-set-box">
+            <view class="position-text">当前位置</view>
+        </view>
+    </view>
+    <view class="logout-box">
+        <view class="logout-btn">退出账号</view>
+    </view>
+</view>

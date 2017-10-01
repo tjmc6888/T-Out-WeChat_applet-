@@ -8,7 +8,8 @@ Page({
     base_price: 20,    
     channels : [{name:'wx',value:'微信',checked:'true'},{name:'alipay',value:'支付宝'}],              
     channel : '微信',
-    address : ''
+    address : '',
+    backup_content : ''
   },
 
   /**
@@ -21,11 +22,13 @@ Page({
     wx.setNavigationBarTitle({
         title: '购物车' ,
       });
+    var myDelivery = getApp().globalData.myDelivery
+    var delivery = myDelivery.province+','+myDelivery.city+','+myDelivery.area+','+myDelivery.street
     this.setData({
       goodsList : myTrolley.goodsArr,
       totalPrice: myTrolley.totalPrice,                    
       totalnum: myTrolley.totalnum,                     
-      delivery : getApp().globalData.myDelivery,
+      delivery : delivery,
       address : getApp().globalData.myAddress,
     })
   },
@@ -114,7 +117,8 @@ Page({
       delivery: order.delivery,
       totalPrice:  order.totalPrice,                    
       totalnum: order.totalnum,                      
-      channel : order.channel
+      channel : order.channel,
+      backup_content : order.backup_content
     }
     getApp().globalData.myOrder = data
     //传送至订单详情页
