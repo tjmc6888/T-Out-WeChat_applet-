@@ -11,7 +11,8 @@
     "pages/edit/edit",
     "pages/add/add",
     "pages/resultPage/resultPage",
-    "pages/myInfo/myInfo"
+    "pages/myInfo/myInfo",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

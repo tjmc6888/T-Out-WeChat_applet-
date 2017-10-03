@@ -1,1 +1,73 @@
-/* pages/myInfo/myInfo.wxss */
+.myInfo-container{
+    padding: 0 25rpx;
+    background:white;
+}
+/* 顶部信息卡 */
+.info-card-box{
+    display: inline-flex;
+    padding: 50rpx 0;
+}
+.name-gender-box{
+    display: inline-flex;
+}
+.info-box{
+    margin-left: 25rpx;
+}
+.gender-box{
+    margin-left: 5rpx;
+}
+/* 头像 */
+.avatar-box{
+    width: 120rpx;
+    height: 120rpx;
+}
+.avatar-css{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+.gender-css{
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}
+/* 电话 */
+.phone-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.phone-icon{
+    width: 30rpx;
+    height: 30rpx;
+}
+.delivery-box,.about-box,.contact-box,.position-box{
+    position: relative;
+    display: flex;
+    line-height: 80rpx;
+    border-bottom: 2rpx solid #EEE9E9;
+    align-items:center;
+    
+}   
+.main-action-box{
+    margin-top: 20rpx;
+    margin-right:15rpx;
+    
+}
+/* 操作界面的图标 */
+.main-icon{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 15rpx;
+}
+/*登出按钮*/
+.logout-box{
+    width: 100%;
+    line-height: 80rpx;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 5rpx;
+}
+page{
+    background: #EEE9E9
+}

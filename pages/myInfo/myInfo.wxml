@@ -1,10 +1,14 @@
 <!--pages/myInfo/myInfo.wxml-->
-<text>pages/myInfo/myInfo.wxml</text>
 <view class="myInfo-container">
     <!-- 顶部信息卡片 -->
-    <view class="info-card-box">
+    <!-- 已登陆 -->
+    <view class="info-card-box" wx:if="{{user}}">
+    <!-- <view class="info-card-box" wx:if="{{null}}"> -->
         <!-- 左边头像 -->
-        <view class="avatar-box"></view>
+        <view class="avatar-box">
+           <image src="{{user.avatarUrl}}" class="avatar-css" />
+            <!-- <image src="{{avatar}}" class="avatar-css" /> -->
+        </view>
         <!-- 右边信息 -->
         <view class="info-box">
             <!-- 姓名和性别 -->
@@ -17,30 +21,58 @@
             <!-- 电话 -->
             <view class="phone-box">
                 <image class="phone-icon" src='/assets/img/phone.png'></image>
-                <view class="phone-number">{{user.phone_number}}</view>
+                <!-- <view class="phone-number">{{user.phone_number}}</view> -->
+                <view class="phone-number">{{phone_number}}</view>
             </view>
         </view>
     </view>
+    <!-- 未登录 -->
+    <view class="info-card-box" wx:else>
+        <!-- 左边头像 -->
+        <view class="avatar-box">
+            <image src="/assets/img/user.png" class="avatar-css" />
+        </view>
+        <!-- 右边信息 -->
+        <view class="info-box" bindtap='login'>
+            <!-- 姓名和性别 -->
+            <view class="name-gender-box">
+                <view class="name-box">授权登陆</view>
+                <view class="gender-box">
+                    <image class="gender-css" src="/assets/img/miss_sex.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="margin-left:-25rpx; padding: 0 25rpx; width:100%;height:15rpx;background: #EEE9E9; "></view>
     <!-- 主体操作选项 -->
-    <view class="main-action-box">
+    <view class="main-action-box" wx:if="{{user}}">
         <!-- 收货地址设置 -->
-        <view class="delivery-set-box">
-            <view class="deluvery-text">收货地址设置</view>
+        <view class="delivery-box" bindtap="toDelivery">
+            <image class="main-icon" src='/assets/img/delivery_address.png'></image>
+            <view class="delivery-text">收货地址</view>
         </view>
         <!-- 关于我们 -->
-        <view class="delivery-set-box">
+        <view class="about-box" bindtap="toAbout" wx:if="{{null}}">
+            <image class="main-icon" src='/assets/img/about.png'></image>
             <view class="about-text">关于我们</view>
         </view>
         <!-- 联系客服 -->
-        <view class="delivery-set-box">
+        <view class="contact-box" bindtap="contactGM">
+            <image class="main-icon" src='/assets/img/contact.png'></image>
             <view class="contact-text">联系客服</view>
         </view>
         <!-- 当前位置 -->
-        <view class="delivery-set-box">
+        <view class="position-box" bindtap="getPosition">
+            <image class="main-icon" src='/assets/img/position.png'></image>
             <view class="position-text">当前位置</view>
         </view>
+        <!-- 显示位置 -->
+        <view class="position-show-box" wx:if="{{address}}">
+            <view class="position-show">{{address_name}},{{address}}</view>
+        </view>
     </view>
-    <view class="logout-box">
-        <view class="logout-btn">退出账号</view>
+    <view style="margin-left:-25rpx; padding: 0 25rpx; width:100%;height:15rpx;background: #EEE9E9; " ></view>
+    <view class="logout-box" wx:if="{{user}}">
+        <view class="logout-btn" bindtap="logout">退出账号</view>
     </view>
 </view>
