@@ -15,7 +15,7 @@
     word-break:break-all;
 }
 .order-detail-container{
-    padding-bottom: 50rpx;
+    padding-bottom: 150rpx;
 }
 text{
     /* margin: 0 15rpx; */
@@ -33,7 +33,7 @@ text{
     height:300rpx;
     justify-content:center;
     align-items:center;
-    margin-bottom:-30rpx;
+    margin-bottom:-150rpx;
 }
 .order-status{
     position: absolute;

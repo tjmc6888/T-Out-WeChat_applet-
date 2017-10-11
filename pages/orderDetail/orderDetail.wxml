@@ -1,16 +1,5 @@
 <view class="order-detail-container">
-    <!-- 订单状态 -->
-    <view class="status-box">
-        <view class="order-status {{btn_left_css}}" id="leftBtn_{{status}}"  bindtap="tapLeft" >
-            <span class="order-status-text">{{btn_left}}</span>
-        </view>
-        <view class="order-status center-btn {{btn_center_css}}" id="status_{{status}}" bindtap="dealStatus">
-            <span class="order-status-text">{{status_text}}</span>
-        </view>
-        <view class="order-status {{btn_right_css}}" id="rightBtn_{{status}}" bindtap="tapRight">
-            <span class="order-status-text">{{btn_right}}</span>
-        </view>
-    </view>
+
     <!-- 订单商品列表 -->
     <view class="goods-list-box">
         <view class="goods-list-title">
@@ -64,6 +53,18 @@
             <text class="two-word">数</text>量: <view class="order-data">{{totalnum}}</view> 
             <view style="clear:both;"></view>
             <text class="two-word">总</text>价: <view class="order-data">{{totalPrice}}</view> 
+        </view>
+    </view>
+    <!-- 订单状态 -->
+    <view class="status-box">
+        <view class="order-status {{btn_left_css}}" id="leftBtn_{{status}}"  bindtap="tapLeft" >
+            <span class="order-status-text">{{btn_left}}</span>
+        </view>
+        <view class="order-status center-btn {{btn_center_css}}" id="status_{{status}}" bindtap="dealStatus">
+            <span class="order-status-text">{{status_text}}</span>
+        </view>
+        <view class="order-status {{btn_right_css}}" id="rightBtn_{{status}}" bindtap="tapRight">
+            <span class="order-status-text">{{btn_right}}</span>
         </view>
     </view>
 </view>

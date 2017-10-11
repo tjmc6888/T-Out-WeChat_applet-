@@ -20,9 +20,9 @@
             </view>
             <!-- 电话 -->
             <view class="phone-box">
-                <image class="phone-icon" src='/assets/img/phone.png'></image>
-                <!-- <view class="phone-number">{{user.phone_number}}</view> -->
-                <view class="phone-number">{{phone_number}}</view>
+                <!-- <image class="phone-icon" src='/assets/img/phone.png'></image>
+                <view class="phone-number">{{phone_number}}</view> -->
+                <view class="phone-number">{{live}}</view>
             </view>
         </view>
     </view>

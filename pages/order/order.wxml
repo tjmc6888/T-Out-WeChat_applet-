@@ -1,6 +1,6 @@
 <view>
     <view class="big-contain">
-        订单页面
+        
         <!-- 订单列表 -->
         <view class="order-list-box">
             <view class="order-item" wx:for="{{orderList}}"  

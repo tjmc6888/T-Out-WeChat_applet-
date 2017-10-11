@@ -1,5 +1,4 @@
 <!--pages/goodsDetail/goodsDetail.wxml-->
-<text>pages/goodsDetail/goodsDetail.wxml</text>
 <view class="goods-show-contain">
     <!-- goods的图片 -->
     <view class="goods-img-box" bindtap='getImg'>

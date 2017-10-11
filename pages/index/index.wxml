@@ -1,32 +1,34 @@
 <!--index.wxml-->
 <view>
+
+  <!-- 招牌 -->
+  <view class='signature-box'>
+    <view class='signature-logo-box'>
+      <!-- <image class='signature-logo' src='/assets/img/shop1.jpg'></image> -->
+      <image class='signature-logo' src='{{logo}}'></image>
+    </view>
+    <view class='signature-info'>
+      <text class='shop-name'>{{shop_name}}</text>
+      <!-- <text class='shop-address'>{{address}}</text> -->
+    </view>
+  </view>
   <!-- 公告 -->
   <view class='notice-box'>
     <image class="notice-icon" src="/assets/img/notice.png"></image>
     <text class='notice-css'> {{notice}}</text>
   </view>
-  <!-- 招牌 -->
-  <view class='signature-box'>
-    <view class='signature-logo-box'>
-      <image class='signature-logo' src='/assets/img/shop1.jpg'></image>
-    </view>
-    <view class='signature-info'>
-      <text class='shop-name'></text>
-      <text class='shop-address'></text>
-    </view>
-  </view>
   <!-- 今日优惠 -->
-  <view class='preferential-box'>
+  <!-- <view class='preferential-box'>
     <view class='preferential-title'>
       <text>今日优惠</text>
     </view>
-    <!-- 循环 -->
     <view class='preferential-list' >
       <view class="preferential-item" wx:for="{{preferential_list}}" wx:key="{{tpty_index}}">
         <text>{{index+1}}、{{item.content}}</text>
       </view>
     </view>
-  </view>
+  </view> -->
+  <!-- 轮播图 -->
   <view class="swiper-box">
     <swiper class="swiper-list" indicator-dots="{{swiperConfig.indicatorDots}}" autoplay="{{swiperConfig.autoplay}}" interval="{{swiperConfig.interval}}"
       duration="{{swiperConfig.duration}}" circular="{{swiperConfig.circular}}">
@@ -34,7 +36,8 @@
       <block wx:for="{{swiperConfig.imgUrls}}" wx:key="swiper_id">
         <swiper-item>
           <text>{{swiper_id}}</text>
-          <image src="{{item}}" class="slide-image" width="355" height="150" id="recommend_{{index}}" bindtap="toOrderDetail" />
+          <image src="{{item}}" class="slide-image" width="355" height="150" id="recommend_{{index}}" bindtap="toGrade" />
+          <!-- <image src="{{item}}" class="slide-image" width="355" height="150" id="recommend_{{index}}"/> -->
         </swiper-item>
       </block>
     </swiper>
@@ -54,7 +57,7 @@
       <view class="goods-type-top">
           <text>{{showType.typeName}}: {{showType.description}}</text>
       </view>
-      <view class='goods-item' wx:for="{{goodsList}}" wx:key="{{goods_index}}">
+      <view class='goods-item' wx:for="{{goodsList}}" wx:key="{{goods_index}}" wx:if="{{item.tag.tag_id ==type_id}}">
         <view class='goods-num-box'>
           <image class='reduce-icon' src='/assets/img/reduce.png' bindtap='deleGoods' id='deleGoods_{{item.id}}' wx:if="{{item.goodsNum}}"></image>
           <input id="goodsNum_{{item.id}}" type='number' class='goods-num' value='{{item.goodsNum}}' bindinput="setNum" wx:if="{{item.goodsNum}}"></input> 

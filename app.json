@@ -9,14 +9,14 @@
     "pages/goodsDetail/goodsDetail",
     "pages/delivery/delivery",
     "pages/edit/edit",
-    "pages/add/add",
     "pages/resultPage/resultPage",
     "pages/myInfo/myInfo",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/grade/grade"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#333",
+    "navigationBarBackgroundColor": "#F33333",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white"
   },

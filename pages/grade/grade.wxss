@@ -1,0 +1,27 @@
+/* pages/grade/grade.wxss */
+.star-grade-box{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 400rpx;
+}
+.star-css{
+    width: 120rpx;
+    height: 120rpx;
+    margin: 25rpx;
+}
+.sent-box{
+    width: 100%;
+    background: #f33333;
+    color: white;
+    line-height: 90rpx;
+    font-size: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 10rpx;
+}
+.sent-btn{
+
+}

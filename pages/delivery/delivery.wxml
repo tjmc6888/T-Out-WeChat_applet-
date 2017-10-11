@@ -18,8 +18,8 @@
                 </view>
                 <!-- 个人信息部分 -->
                 <view class="item-bottom">
-                    <text class="userName">{{item.username}}</text>
-                    <text class="gender">{{item.gender}}</text>
+                    <text class="userName">{{item.receiver_name}}</text>
+                    <text class="gender">{{item.gender==1?'男':'女'}}</text>
                     <text class="phone">{{item.phone_number}}</text>
                 </view>
             </view>

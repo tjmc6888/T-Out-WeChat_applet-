@@ -1,10 +1,9 @@
-<text>pages/edit/edit.wxml</text>
 <view class="edit-box">
     <view class="propertys-item">
         <!-- 用户名 -->
         <view class="username-box">
             <text class="username-label">收件人姓名:</text>
-            <input type="text" class="username-value" value="{{userName}}" placeholder="请输入收件人姓名..."></input>
+            <input type="text" class="username-value" value="{{receiver_name}}" placeholder="请输入收件人姓名..." bindinput="setReceiver"></input>
         </view>
         <!-- 性别 -->
         <view class="gender-box">
@@ -27,22 +26,22 @@
                     点击此处设置收货地址
                 </view>
             </picker>
-            <input type="text" class="detailed-address" placeholder="详细地址(如门牌号)" value="{{detailed_address}}"></input>
+            <input type="text" class="detailed-address" placeholder="详细地址(如门牌号)" value="{{street}}" bindinput="setAddress"></input>
         </view>
         <!-- 电话号码 -->
         <text class="phone-number-label">电话号码:</text>
         <view class="phone-number-box">
-            <input type="text" class="phone-number" placeholder="你的电话号码..." value="{{phone_number}}" ></input>
+            <input type="text" class="phone-number" placeholder="你的电话号码..." value="{{phone_number}}" bindinput="setPhone"></input>
         </view>
         <!-- 设为默认 -->
-        <view class="default-box">
+        <!-- <view class="default-box">
            <text class="default-delivery-label">是否设为默认地址:</text>
            <radio-group class="radio-group default-address" bindchange="setDefault">
-            <label class="radio " wx:for="{{default}}" wx:key="{{default_index}}">
-                <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
-            </label>
-        </radio-group>
-        </view>
+                <label class="radio " wx:for="{{default}}" wx:key="{{default_index}}">
+                    <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+                </label>
+            </radio-group>
+        </view> -->
     </view>
     <view class="add-address-botton" bindtap="confirmDelivery">
         <text>确认地址</text>

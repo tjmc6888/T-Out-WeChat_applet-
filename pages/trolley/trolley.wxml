@@ -40,7 +40,7 @@
           <text>备注:</text>
           <view class="input-box">
               <!-- <input type="text" class="textarea-css" placeholder-class="placeholder-class" maxlength="20" placeholder="请输入备注内容...(20字以内,可不填)" value="{{backup_content}}" ></input> -->
-              <textarea class="textarea-css" placeholder-class="placeholder-class" maxlength="20" placeholder="请输入备注内容...(20字以内,可不填)" value="{{backup_content}}" />
+              <textarea class="textarea-css" placeholder-class="placeholder-class" maxlength="20" placeholder="请输入备注内容...(20字以内,可不填)" value="{{backup_content}}" bindinput="setBackup"/>
           </view>
         </view>
             <!-- 支付方式 -->

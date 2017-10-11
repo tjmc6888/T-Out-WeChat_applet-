@@ -1,0 +1,13 @@
+<!--pages/grade/grade.wxml-->
+<view class="big-container">
+    <view class="star-grade-box">
+        <image wx:for="{{star_arr}}" src="{{item}}" class="star-css" id="star_{{index+1}}" wx:key="*this" bindtap="add"></image>
+        <!-- <image src="{{star_2}}" class="star-css" id="star_2" bindtap="add2"></image>
+        <image src="{{star_3}}" class="star-css" id="star_3" bindtap="add3"></image>
+        <image src="{{star_4}}" class="star-css" id="star_4" bindtap="add4"></image>
+        <image src="{{star_5}}" class="star-css" id="star_5" bindtap="add5"></image> -->
+    </view>
+    <view class="sent-box">
+        <view class="sent-btn" bindtap="sentGrade">提交评分</view>
+    </view>
+</view>

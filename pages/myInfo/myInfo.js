@@ -10,6 +10,7 @@ Page({
     nickName : 'johnsamyoo',
     phone_number : '18826104512',
     GM_phone : '18826108847',
+    live : ''
   },
 
   /**
@@ -18,6 +19,14 @@ Page({
   onLoad: function (options) {
     var user = this.data.user;
     // //若用户为登陆
+    var myInfo = getApp().globalData.myInfo
+    console.log('myInfo')
+    console.log(myInfo)
+    this.setData({
+      phone_number : myInfo.deliveries[0].phone_number,
+      nickName : myInfo.nickname,
+      live  : myInfo.country+','+myInfo.province+','+myInfo.city
+    })
     if(!user)
       this.setUserInfo()
   },

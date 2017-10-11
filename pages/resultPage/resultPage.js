@@ -44,6 +44,11 @@ Page({
         result.img = '/assets/img/finished.png';
         result.content = '该订单已完成,望君再次光临';
       };break;
+      case '51':{
+        //待送达:已送达
+        result.img = '/assets/img/smile.png';
+        result.content = '感谢您的点评,望君再次光临';
+      };break;
       case '31':{
         //待退款:已退款
         result.img = '/assets/img/closed.png';
